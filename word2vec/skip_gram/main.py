@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 from loguru import logger
 from sklearn.manifold import TSNE
 
-from skip_gram.Constants import *
 from skip_gram.dataset import SkipGramDataset
 from skip_gram.model import SkipGram
 
@@ -23,7 +22,7 @@ def parse_args():
 
     # Arguments defining the training-process
     parser.add_argument('--batch_size', type=int, default=256, help=f'Batch size')
-    parser.add_argument('--data_source', type=str, default='256', help=f'Data Source to train the model')
+    parser.add_argument('--data_source', type=str, default='gensim', help=f'Data Source to train the model')
     parser.add_argument('--data_fraction', type=float, default=0.2, help=f'Fraction of the data to train for')
     parser.add_argument('--epochs', type=int, default=300, help=f'Number of epochs')
     parser.add_argument('--num_negative_samples', type=int, default=3, help=f'Number of negative samples to train in '
