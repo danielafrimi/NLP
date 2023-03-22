@@ -5,6 +5,7 @@ import nltk
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
+import gensim.downloader as api
 
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
@@ -90,29 +91,18 @@ class SkipGramDataset(Dataset):
 
         stop_words = set(stopwords.words('english'))
 
-        if data_source == 'toy':
-            sentences = [
-                'word1 word2 word3 word4 word5',
-                'word6 word7 word8 word9 word10',
-                'word11 word12 word13 word14 word15'
-            ]
-            # sents = ['word6 word7 word8 word9 word10', 'word1 word1 word1 word2 word2 word3 word4 word5', 'word11 word12 word13 word14 word15']
+        dataset = api.load("text8")
+        data = [d for d in dataset][:int(fraction_data * len([d_ for d_ in dataset]))]
 
-        elif data_source == 'gensim':
-            import gensim.downloader as api
-            dataset = api.load("text8")
-            data = [d for d in dataset][:int(fraction_data * len([d_ for d_ in dataset]))]
-            print(f'fraction of data taken: {fraction_data}/1')
+        sentences = list()
 
-            sentences = []
-            print('forming sentences by joining tokenized words...')
-            for d in tqdm(data):
-                sentences.append(' '.join(d))
+        for dataset in tqdm(data):
+            sentences.append(' '.join(dataset))
 
         sentences_list_tokenized = [word_tokenize(sentence) for sentence in sentences]
         print('len(sent_list_tokenized): ', len(sentences_list_tokenized))
 
-        sent_list_tokenized_filtered = []
+        sent_list_tokenized_filtered = list()
         print('lemmatizing and removing stopwords...')
         for sentence in tqdm(sentences_list_tokenized):
             # Lemmatize is text normalization technique, that switches any kind of a word to its base root mode.

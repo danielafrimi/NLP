@@ -22,32 +22,28 @@ class SkipGram(nn.Module):
 
     def forward(self, input_word, context_word):
         # computing out loss
-        emb_input = self.embeddings_input(input_word)  # bs, emb_dim
-        emb_context = self.embeddings_context(context_word)  # bs, emb_dim
-        emb_product = torch.mul(emb_input, emb_context)  # bs, emb_dim
-        emb_product = torch.sum(emb_product, dim=1)  # bs
-        out_loss = F.logsigmoid(emb_product)  # bs
+        emb_input = self.embeddings_input(input_word)
+        emb_context = self.embeddings_context(context_word)
+        emb_product = torch.mul(emb_input, emb_context)
+        emb_product = torch.sum(emb_product, dim=1)
+        out_loss = F.logsigmoid(emb_product)
 
         if self.negative_samples > 0:
             # computing negative loss
-
             noise_dist = self.noise_dist
 
             # Create negative examples for the context word
             num_neg_samples_for_this_batch = context_word.shape[0] * self.negative_samples
+
             # Returns a tensor where each row contains num_samples indices sampled from the multinomial probability
             # distribution located in the corresponding row of tensor input.
             negative_example = torch.multinomial(noise_dist, num_neg_samples_for_this_batch,
                                                  replacement=True)  # coz bs*num_neg_samples > vocab_size
 
             negative_example = negative_example.view(context_word.shape[0], self.negative_samples) # bs, num_neg_samples
-
             emb_negative = self.embeddings_context(negative_example)  # bs, neg_samples, emb_dim
-
             emb_product_neg_samples = torch.bmm(emb_negative.neg(), emb_input.unsqueeze(2))  # bs, neg_samples, 1
-
             noise_loss = F.logsigmoid(emb_product_neg_samples).squeeze(2).sum(1)  # bs
-
             total_loss = -(out_loss + noise_loss).mean()
 
             return total_loss

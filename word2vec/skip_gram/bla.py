@@ -6,8 +6,6 @@ def q():
     sys.exit()
 
 
-
-
 def nearest_word(inp, emb, top=5, debug=False):
     euclidean_dis = np.linalg.norm(inp - emb, axis=1)
     emb_ranking = np.argsort(euclidean_dis)

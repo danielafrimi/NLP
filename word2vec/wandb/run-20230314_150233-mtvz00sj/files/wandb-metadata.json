@@ -1,0 +1,22 @@
+{
+    "os": "macOS-10.16-x86_64-i386-64bit",
+    "python": "3.8.5",
+    "heartbeatAt": "2023-03-14T13:02:38.120474",
+    "startedAt": "2023-03-14T13:02:33.732701",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/danielafrimi/Desktop/NLP/word2vec/main.py",
+    "codePath": "word2vec/main.py",
+    "git": {
+        "remote": "https://github.com/danielafrimi/NLP.git",
+        "commit": "ccf156dab2482062f50b5664f5db443284ac9ec8"
+    },
+    "email": "danielafrimi8@gmail.com",
+    "root": "/Users/danielafrimi/Desktop/NLP",
+    "host": "MacBook-Pro",
+    "username": "danielafrimi",
+    "executable": "/opt/homebrew/Caskroom/miniconda/base/envs/Lab_Vision/bin/python"
+}
