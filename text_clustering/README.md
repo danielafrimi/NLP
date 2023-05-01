@@ -1,4 +1,5 @@
 
+For more info read my medium blog https://medium.com/@danielafrimi/text-clustering-using-nlp-techniques-c2e6b08b6e95
 
 ### Text Clustering using NLP techniques <br>
 In recent years, Natural Language Processing (NLP) has become increasingly popular as a tool for analyzing large volumes of text data.
@@ -41,4 +42,4 @@ which is meant to capture the overall meaning of the sequence.
 
 
 
-Read about this in my medium blog https://medium.com/@danielafrimi/text-clustering-using-nlp-techniques-c2e6b08b6e95
+
