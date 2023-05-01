@@ -1,4 +1,4 @@
-Read about this in my medium blog https://medium.com/@danielafrimi/text-clustering-using-nlp-techniques-c2e6b08b6e95
+
 
 ### Text Clustering using NLP techniques <br>
 In recent years, Natural Language Processing (NLP) has become increasingly popular as a tool for analyzing large volumes of text data.
@@ -38,3 +38,7 @@ allowing it to better capture the meaning of a sentence.
 
 In BERT, the [CLS] token, which stands for “classification”, is a special token that is inserted at the beginning of every input sequence. During pre-training, BERT is trained to predict the correct class label for the entire sequence based on the [CLS] token representation,
 which is meant to capture the overall meaning of the sequence.
+
+
+
+Read about this in my medium blog https://medium.com/@danielafrimi/text-clustering-using-nlp-techniques-c2e6b08b6e95
