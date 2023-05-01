@@ -1,4 +1,4 @@
-## Twitter Toxic Comments Sentiment Analysis
+## Twitter Toxic Comments Sentiment Analysis <br>
 
 This project uses machine learning to analyze a dataset of toxic comments from Twitter and predict different classes of toxicity.
 The goal of the project is to build a model that can accurately predict whether a given comment is toxic or non-toxic, and if it is toxic, what type of toxicity it exhibits.
